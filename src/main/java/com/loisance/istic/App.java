@@ -36,6 +36,7 @@ public class App
 
         // add Processor
         launcher.addProcessor(new MyClassProcessor());
+        launcher.process();
 
         // print the transformed code!
         File outDir = new File("/home/eloisance/workspace/DummyProject/gen");

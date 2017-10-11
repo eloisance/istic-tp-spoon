@@ -10,7 +10,7 @@ public class MyClassProcessor extends AbstractProcessor<CtMethod> {
     @Override
     public void process(CtMethod element) {
         Factory f = element.getFactory();
-        CtCodeSnippetStatement stmt = f.createCodeSnippetStatement("System.out.println(\"Hello world\"");
-        element.getBody().insertAfter(stmt);
+        CtCodeSnippetStatement stmt = f.createCodeSnippetStatement("System.out.println(\"Hello world\")");
+        element.getBody().insertBegin(stmt);
     }
 }
