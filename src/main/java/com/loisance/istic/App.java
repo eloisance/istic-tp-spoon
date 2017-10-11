@@ -24,17 +24,15 @@ public class App
 
         CtModel root = launcher.getModel();
 
-        root.getAllPackages().stream().forEach(
-                p -> System.out.println("p: " + p.getQualifiedName())
-        );
-
-        root.getAllPackages().stream().forEach(
-                p -> p.getTypes().forEach(
-                        t -> t.getMethods().forEach(
-                                m -> System.out.println(m.getSimpleName())
-                        )
-                )
-        );
+        root.getAllPackages().forEach(p -> {
+            System.out.println("package: " + p.getQualifiedName());
+            p.getTypes().forEach(t -> {
+                System.out.println("type: " + t.getSimpleName());
+                t.getMethods().forEach(m -> {
+                    System.out.println("method: " + m.getSimpleName());
+                });
+            });
+        });
 
         // add Processor
         launcher.addProcessor(new MyClassProcessor());
